@@ -13,9 +13,9 @@ namespace VeinMiner
     public class VeinMiner : TerrariaPlugin
     {
         public override string Name => "VeinMiner";
-        public override Version Version => System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;    
-        public override string Author => "Megghy|YSpoof"; 
-        public override string Description => "VeinMiner by Megghy but with TShock 5 support!";
+        public override Version Version => new Version( 1, 6, 0, 2);    
+        public override string Author => "Megghy|YSpoof|Maxthegreat99"; 
+        public override string Description => "VeinMiner by Megghy but with TShock 5.2 support!";
         internal static Config Config = new();
         public VeinMiner(Main game) : base(game)
         {

@@ -19,10 +19,10 @@ namespace VeinMiner
                     {
                         new()
                         {
-                            OnlyGiveItem = true,
-                            MinSize = 10,
-                            Type = 169,
-                            Item = new() { { 953, 1 }, { 2425, 5 } }
+                            //OnlyGiveItem = true,
+                            //MinSize = 10,
+                            //Type = 169,
+                            //Item = new() { { 953, 1 }, { 2425, 5 } }
                         }
                     },
                     Tile = new() { 7, 166, 6, 167, 9, 168, 8, 169, 37, 22, 204, 56, 58, 107, 221, 108, 222, 111, 223, 211, 408, 123, 224, 404, 178, 63, 64, 65, 66, 67, 68 }
