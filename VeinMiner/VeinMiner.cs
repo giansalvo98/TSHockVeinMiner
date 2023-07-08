@@ -39,7 +39,7 @@ namespace VeinMiner
                     else
                     {
                         result.Enable = !result.Enable;
-                        tsp.SendMessage($"[c/95CFA6:<VeinMiner> {(result.Enable ? "Activated" : "Deactivated! | To turn off only mining status messages use: /vm msg")}.]", Color.White);
+                        tsp.SendMessage($"[c/95CFA6:<VeinMiner> {(result.Enable ? "Activated" : "Deactivated! | To turn off only mining status messages use: /vm {any parameter}")}.]", Color.White);
                     }
                 },
                 "veinminer", "chain mining", "vm"));
