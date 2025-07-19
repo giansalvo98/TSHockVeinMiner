@@ -6,26 +6,27 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up .NET SDK
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '6.0.x'
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
 
-      - name: Restore dependencies
-        run: dotnet restore
+    - name: Restore dependencies
+      run: dotnet restore
 
-      - name: Build
-        run: dotnet build --configuration Release --runtime linux-arm64
+    - name: Build VeinMiner project
+      run: dotnet build TShockVeinMiner.csproj --configuration Release --runtime linux-arm64
 
-      - name: Upload VeinMiner.dll
-        uses: actions/upload-artifact@v4
-        with:
-          name: VeinMiner
-          path: |
-            bin/Release/net6.0/linux-arm64/publish/VeinMiner.dll
+    - name: Publish VeinMiner for ARM64
+      run: dotnet publish TShockVeinMiner.csproj --configuration Release --runtime linux-arm64 --output publish
 
-
+    - name: Upload VeinMiner.dll
+      uses: actions/upload-artifact@v4
+      with:
+        name: VeinMiner
+        path: publish/VeinMiner.dll
