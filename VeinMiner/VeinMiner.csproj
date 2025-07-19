@@ -1,28 +1,29 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <OutputType>Library</OutputType>
-    <RuntimeIdentifier>linux-arm64</RuntimeIdentifier>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <!-- Remove PlatformTarget so it can build for ARM64 -->
   </PropertyGroup>
-
-  <ItemGroup>
-    <Reference Include="OTAPI">
-      <HintPath>lib/OTAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="ModFramework">
-      <HintPath>lib/ModFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="TerrariaServer">
-      <HintPath>lib/TerrariaServer.dll</HintPath>
-    </Reference>
-    <Reference Include="TShockAPI">
-      <HintPath>lib/TShockAPI.dll</HintPath>
-    </Reference>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ModFramework">
+      <HintPath>./refs/ModFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="OTAPI">
+      <HintPath>./refs/OTAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="TerrariaServer">
+      <HintPath>./refs/TerrariaServer.dll</HintPath>
+    </Reference>
+    <Reference Include="TShockAPI">
+      <HintPath>./refs/TShockAPI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
