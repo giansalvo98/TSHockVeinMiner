@@ -17,16 +17,13 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./VeinMiner.csproj
 
-    - name: Build VeinMiner project
-      run: dotnet build TShockVeinMiner.csproj --configuration Release --runtime linux-arm64
-
-    - name: Publish VeinMiner for ARM64
-      run: dotnet publish TShockVeinMiner.csproj --configuration Release --runtime linux-arm64 --output publish
+    - name: Build VeinMiner for ARM64
+      run: dotnet publish ./VeinMiner.csproj --configuration Release --runtime linux-arm64 --self-contained false --output ./publish
 
     - name: Upload VeinMiner.dll
       uses: actions/upload-artifact@v4
       with:
         name: VeinMiner
-        path: publish/VeinMiner.dll
+        path: ./publish/VeinMiner.dll
