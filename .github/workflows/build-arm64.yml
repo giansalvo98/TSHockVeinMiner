@@ -1,4 +1,4 @@
-name: Build VeinMiner for ARM64
+lname: Build VeinMiner for ARM64
 
 on:
   workflow_dispatch:
@@ -8,22 +8,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.0.x'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '6.0.x'
 
-    - name: Restore dependencies
-      run: dotnet restore ./VeinMiner.csproj
+      - name: Restore dependencies
+        run: dotnet restore ./TSHockVeinMiner/VeinMiner/VeinMiner.csproj
 
-    - name: Build VeinMiner for ARM64
-      run: dotnet publish ./VeinMiner.csproj --configuration Release --runtime linux-arm64 --self-contained false --output ./publish
+      - name: Publish VeinMiner for ARM64
+        run: dotnet publish ./TSHockVeinMiner/VeinMiner/VeinMiner.csproj \
+              --configuration Release \
+              --runtime linux-arm64 \
+              --self-contained false \
+              --output ./publish
 
-    - name: Upload VeinMiner.dll
-      uses: actions/upload-artifact@v4
-      with:
-        name: VeinMiner
-        path: ./publish/VeinMiner.dll
+      - name: Upload VeinMiner.dll
+        uses: actions/upload-artifact@v4
+        with:
+          name: VeinMiner
+          path: ./publish/VeinMiner.dll
