@@ -1,4 +1,4 @@
-lname: Build VeinMiner for ARM64
+name: Build VeinMiner for ARM64
 
 on:
   workflow_dispatch:
