@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <OutputType>Library</OutputType>
-    <!-- Remove PlatformTarget so it can build for ARM64 -->
   </PropertyGroup>
 
   <ItemGroup>
